@@ -39,6 +39,16 @@
         "description": "Crie um placar que incremente 3 pontos para cada acerto no jogo",
         "enabled": true,
         "bonus": true
+      },
+      {
+        "description": "Crie uma regra que decremente 1 ponto para cada erro",
+        "enabled": false,
+        "bonus": true
+      },
+      {
+        "description": "Crie uma regra de incremento e decremento progressivos",
+        "enabled": false,
+        "bonus": true
       }
     ]
   }
