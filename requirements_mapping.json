@@ -1,0 +1,11 @@
+{
+  "A página deve possuir um título centralizado com o nome do seu jogo": 63,
+  "A página deve conter um texto centralizado com o RGB a ser adivinhado": 64,
+  "A página deve conter 6 bolas como opção de cor de adivinhação": 65,
+  "Ao clicar em uma bola, deve ser mostrado um texto que indica se a cor selecionada foi a correta": 66,
+  "As cores das bolas devem ser geradas aleatoriamente via JavaScript": 67,
+  "Deve haver um botão para reiniciar o jogo": 68,
+  "Crie um placar que incremente 3 pontos para cada acerto no jogo": 69,
+  "Crie uma regra que decremente 1 ponto para cada erro": 70,
+  "Crie uma regra de incremento e decremento progressivos": 71
+}
