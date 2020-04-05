@@ -19,6 +19,7 @@
   "dependencies": {
     "cypress": "^4.0.2",
     "cypress-multi-reporters": "^1.2.4",
+    "minimist": ">=1.2.3",
     "mocha": "^7.0.1",
     "mochawesome": "^4.1.0",
     "mochawesome-merge": "^4.0.0",
