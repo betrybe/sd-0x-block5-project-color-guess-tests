@@ -247,29 +247,3 @@ describe('Crie um placar que incremente 3 pontos para cada acerto no jogo', () =
     });
   });
 });
-
-describe('O seu site deve ser completamente centralizado', () => {
-  beforeEach(() => {
-    cy.visit('./index.html');
-  });
-
-  it('O body deve ter todos os seus itens flexíveis', () => {
-    cy.get('body')
-      .should('have.css', 'display', 'flex');
-  });
-
-  it('O body deve ter a propriedade `flex-direction` como `column`', () => {
-    cy.get('body')
-      .should('have.css', 'flex-direction', 'column');
-  });
-
-  it('O body deve ter o alinhamento de texto centralizado', () => {
-    cy.get('body')
-      .should('have.css', 'text-align', 'center');
-  });
-
-  it('O body deve ter o alinhamento de itens centralizado', () => {
-    cy.get('body')
-      .should('have.css', 'align-items', 'center');
-  });
-});
