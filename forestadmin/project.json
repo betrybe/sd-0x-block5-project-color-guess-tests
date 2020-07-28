@@ -6,11 +6,6 @@
     "deadline": "YYYY-MM-DD 17:10:00",
     "requirements": [
       {
-        "description": "O seu site deve ser completamente centralizado",
-        "enabled": true,
-        "bonus": false
-      },
-      {
         "description": "O seu site deve possuir um título com o nome do seu jogo",
         "enabled": true,
         "bonus": false
@@ -44,6 +39,11 @@
         "description": "Crie um placar que incremente 3 pontos para cada acerto no jogo",
         "enabled": false,
         "bonus": true
+      },
+      {
+        "description": "O seu site deve ser completamente centralizado",
+        "enabled": true,
+        "bonus": false
       }
     ]
   }

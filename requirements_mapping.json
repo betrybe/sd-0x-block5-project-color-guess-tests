@@ -1,10 +1,10 @@
 {
-  "O seu site deve ser completamente centralizado": 0,
   "O seu site deve possuir um título com o nome do seu jogo": 0,
   "A página deve possuir o texto RGB a ser adivinhado": 0,
   "A página deve conter opções de cores para serem adivinhadas": 0,
   "Ao clicar em uma bola, deve ser mostrado um texto": 0,
   "As cores das bolas devem ser geradas": 0,
   "Crie um botão para iniciar/reiniciar o jogo": 0,
-  "Crie um placar que incremente 3 pontos para cada acerto no jogo": 0
+  "Crie um placar que incremente 3 pontos para cada acerto no jogo": 0,
+  "O seu site deve ser completamente centralizado": 0
 }
