@@ -57,7 +57,6 @@ describe('A página deve possuir o texto RGB a ser adivinhado', () => {
   });
 
   it('O seu id deve ser rgb-color', () => {
-    const rgbTextRegex = /\((\s*\d{1,3}\s*,){2}\s*\d{1,3}\s*\)/;
     cy.get('#rgb-color')
       .should('exist');
   });
