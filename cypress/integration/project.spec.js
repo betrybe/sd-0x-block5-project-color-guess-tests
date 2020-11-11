@@ -91,6 +91,36 @@ describe('A página deve conter opções de cores para serem adivinhadas', () =>
   });
 });
 
+describe('As cores das bolas devem ser geradas dinâmicamente', () => {
+  beforeEach(() => {
+    cy.visit('./index.html');
+  });
+
+  it('Ao carregar a página, as cores de cada um dos 6 circulos coloridos deve ser geradas via JavaScript', () => {
+    let currentBallColors, previousBallColors;
+
+    cy.get('.ball').then((balls) => {
+      // get the initial ball colors
+      previousBallColors = Array.from(balls).map((ball) => (
+        Cypress.$(ball).css('background-color')
+      ));
+
+      // reload the page 5 times and check that the colors change each time
+      for (let i = 0; i < 5; i += 1) {
+        cy.reload();
+        cy.get('.ball').should((balls) => {
+            currentBallColors = Array.from(balls).map((ball) => (
+              Cypress.$(ball).css('background-color')
+            ));
+
+            expect(currentBallColors).not.to.deep.equal(previousBallColors);
+            previousBallColors = currentBallColors;
+        });
+      }
+    });
+  });
+});
+
 describe('Ao clicar em um circulo colorido, deve ser mostrado um texto indicando se está correto', () => {
   beforeEach(() => {
     cy.visit('./index.html');
@@ -121,36 +151,6 @@ describe('Ao clicar em um circulo colorido, deve ser mostrado um texto indicando
     cy.get('#answer')
       .invoke('text')
       .should('match', /Errou! Tente novamente/);
-  });
-});
-
-describe('As cores das bolas devem ser geradas dinâmicamente', () => {
-  beforeEach(() => {
-    cy.visit('./index.html');
-  });
-
-  it('Ao carregar a página, as cores de cada um dos 6 circulos coloridos deve ser geradas via JavaScript', () => {
-    let currentBallColors, previousBallColors;
-
-    cy.get('.ball').then((balls) => {
-      // get the initial ball colors
-      previousBallColors = Array.from(balls).map((ball) => (
-        Cypress.$(ball).css('background-color')
-      ));
-
-      // reload the page 5 times and check that the colors change each time
-      for (let i = 0; i < 5; i += 1) {
-        cy.reload();
-        cy.get('.ball').should((balls) => {
-            currentBallColors = Array.from(balls).map((ball) => (
-              Cypress.$(ball).css('background-color')
-            ));
-
-            expect(currentBallColors).not.to.deep.equal(previousBallColors);
-            previousBallColors = currentBallColors;
-        });
-      }
-    });
   });
 });
 
