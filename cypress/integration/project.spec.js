@@ -51,7 +51,7 @@ describe('O seu site deve possuir um título com o nome do seu jogo', () => {
   });
 });
 
-describe('A página deve possuir o texto com o código RGB a ser adivinhado', () => {
+describe('A página deve possuir o texto RGB a ser adivinhado', () => {
   beforeEach(() => {
     cy.visit('./index.html');
   });
@@ -91,7 +91,7 @@ describe('A página deve conter opções de cores para serem adivinhadas', () =>
   });
 });
 
-describe('As cores das bolas devem ser geradas dinâmicamente', () => {
+describe('As cores das bolas devem ser geradas', () => {
   beforeEach(() => {
     cy.visit('./index.html');
   });
@@ -121,7 +121,7 @@ describe('As cores das bolas devem ser geradas dinâmicamente', () => {
   });
 });
 
-describe('Ao clicar em um circulo colorido, deve ser mostrado um texto indicando se está correto', () => {
+describe('Ao clicar em uma bola, deve ser mostrado um texto', () => {
   beforeEach(() => {
     cy.visit('./index.html');
   });
