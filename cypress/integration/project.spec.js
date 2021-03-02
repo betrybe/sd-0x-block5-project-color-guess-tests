@@ -9,7 +9,7 @@ describe('1 - Adicione no seu site um título com o nome do seu jogo', () => {
     cy.visit('./index.html');
   });
 
-  it('O id do seu título deve ser title', () => {
+  it('Será verificado se o **id** do título é `title`', () => {
     cy.get('#title').invoke('text').should('not.be.empty');
   });
 });
@@ -19,11 +19,11 @@ describe('2 - Adicione um texto com o código RGB a ser adivinhado', () => {
     cy.visit('./index.html');
   });
 
-  it('O seu id deve ser rgb-color', () => {
+  it('Será verificado se o seu id deve ser rgb-color', () => {
     cy.get('#rgb-color').should('exist');
   });
 
-  it('Esse texto deve conter os três números das cores RGB a ser adivinhada, no seguinte formato: `(168, 34, 1)`', () => {
+  it('Será verificado se o texto deve conter os três números das cores RGB a ser adivinhada, no seguinte formato: `(168, 34, 1)`', () => {
     const rgbTextRegex = /\((\s*\d{1,3}\s*,){2}\s*\d{1,3}\s*\)/;
     cy.get('#rgb-color')
       .invoke('text')
@@ -36,7 +36,7 @@ describe('3 - Adicione a página opções de cores para serem adivinhadas', () =
     cy.visit('./index.html');
   });
 
-  it('Deve conter 6 circulos como opção de cor de adivinhação', () => {
+  it('Será verificado que deve conter 6 circulos como opção de cor de adivinhação', () => {
     cy.get('.ball')
       .should('have.length', 6)
       .each((ball) => {
@@ -47,7 +47,7 @@ describe('3 - Adicione a página opções de cores para serem adivinhadas', () =
       });
   });
 
-  it('A class de todos os circulos deve ser ball', () => {
+  it('Será verificado que a class de todos os circulos deve ser ball', () => {
     cy.get('.ball').should('exist');
   });
 });
@@ -57,7 +57,7 @@ describe('4 - Adicione cores nas bolas elas devem ser geradas dinâmicamente', (
     cy.visit('./index.html');
   });
 
-  it('Ao carregar a página, as cores de cada um dos 6 circulos coloridos deve ser geradas via JavaScript', () => {
+  it('Será verificado que ao carregar a página, as cores de cada um dos 6 circulos coloridos deve ser geradas via JavaScript', () => {
     let currentBallColors; let
       previousBallColors;
 
@@ -86,20 +86,20 @@ describe('5 - Clicar em um circulo colorido, deve ser mostrado um texto indicand
     cy.visit('./index.html');
   });
 
-  it('O seu **id** do elemento deve ser `answer`', () => {
+  it('Será verificado que o seu **id** do elemento deve ser `answer`', () => {
     cy.get('#answer').should('exist');
   });
 
-  it('Quando o jogo é iniciado, o texto exibido deve ser `"Escolha uma cor"`', () => {
+  it('Será verificado que quando o jogo é iniciado, o texto exibido deve ser `"Escolha uma cor"`', () => {
     cy.get('#answer').invoke('text').should('match', /Escolha uma cor/);
   });
 
-  it('Se o circulo colorido for o **correto**, deve ser exibido o texto "Acertou!"', () => {
+  it('Será verificado se o circulo colorido for o **correto**, deve ser exibido o texto "Acertou!"', () => {
     rightBall().click();
     cy.get('#answer').invoke('text').should('match', /Acertou!/);
   });
 
-  it('Se o circulo colorido for o **incorreta**, deve ser exibido o texto "Errou! Tente novamente!"', () => {
+  it('Será verificado se o circulo colorido for o **incorreta**, deve ser exibido o texto "Errou! Tente novamente!"', () => {
     wrongBall().click();
 
     cy.get('#answer').invoke('text').should('match', /Errou! Tente novamente/);
@@ -111,11 +111,11 @@ describe('6 - Crie um botão para iniciar/reiniciar o jogo', () => {
     cy.visit('./index.html');
   });
 
-  it('O botão deve ter o id reset-game', () => {
+  it('Será verificado que o botão deve ter o id reset-game', () => {
     cy.get('#reset-game').should('exist');
   });
 
-  it('Ao clicar no botão, novas cores devem ser geradas via JavaScript e o elemento rgb-color deve ser atualizado', () => {
+  it('Será verificado que ao clicar no botão, novas cores devem ser geradas via JavaScript e o elemento rgb-color deve ser atualizado', () => {
     let currentRGBColor; let previousRGBColor; let currentBallColors; let
       previousBallColors;
 
@@ -149,7 +149,7 @@ describe('6 - Crie um botão para iniciar/reiniciar o jogo', () => {
     });
   });
 
-  it('Ao clicar no botão, o elemento answer deve voltar ao estado inicial, exibindo o texto "Escolha uma cor"', () => {
+  it('Será verificado que ao clicar no botão, o elemento answer deve voltar ao estado inicial, exibindo o texto "Escolha uma cor"', () => {
     for (let i = 0; i < 5; i += 1) {
       cy.get('.ball').then((balls) => {
         balls[0].click();
@@ -169,21 +169,21 @@ describe('7 - Crie um placar que incremente 3 pontos para cada acerto no jogo', 
     cy.visit('./index.html');
   });
 
-  it('O elemento deve ter o **id** `score`.', () => {
+  it('Será verificado que o elemento deve ter o **id** `score`.', () => {
     cy.get('#score').should('exist');
   });
 
-  it('O valor inicial dele deve ser 0.', () => {
+  it('Será verificado que o valor inicial dele deve ser 0.', () => {
     expect(score()).to.equal(0);
   });
 
-  it('A cada acerto, é incrementado 3 pontos ao placar', () => {
+  it('Será verificado que a cada acerto, é incrementado 3 pontos ao placar', () => {
     rightBall().click().should(() => {
       expect(score()).to.equal(3);
     });
   });
 
-  it('Ao clicar no botão reiniciar, o placar NÃO deve ser resetado', () => {
+  it('Será verificado que ao clicar no botão reiniciar, o placar NÃO deve ser resetado', () => {
     rightBall().click();
 
     cy.get('#reset-game').click().then(() => {
